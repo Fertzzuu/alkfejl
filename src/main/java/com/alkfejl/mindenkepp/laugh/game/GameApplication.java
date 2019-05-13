@@ -9,11 +9,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
 public class GameApplication {
     private Lobby lobby; // TODO: 5/13/19 v2:  hashmap lobbies -header id
     private static final GameApplication instance = new GameApplication();
 
-
+    private GameApplication() {
+    }
 
     @org.jetbrains.annotations.Contract(pure = true)
     public static GameApplication getInstance() {

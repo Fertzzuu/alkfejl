@@ -12,7 +12,7 @@ public class GameService {
     private GameApplication application;
 
     public GameService(){
-        application = new GameApplication();
+        application = GameApplication.getInstance();
         application.createLobby();
     }
 
