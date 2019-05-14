@@ -100,4 +100,13 @@ public class Game {
         cards.remove(0);
         return text;
     }
+
+    public List<String> getBoard() {
+        List<String> ids = new ArrayList<>();
+        for (Field f:
+             board) {
+            ids.add(f.getId());
+        }
+        return ids;
+    }
 }

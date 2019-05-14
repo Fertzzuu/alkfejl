@@ -24,7 +24,9 @@ public class MainController {
     @PostMapping("/join/{access_code}")
     public ResponseEntity<Object> joinLobby(@PathVariable("access_code") String accessCode, @RequestBody JoinRequestBody requestBody) {
         String id = gameService.joinLobby(accessCode, requestBody.getName(), requestBody.getColor());
-        return new ResponseEntity<>(id, HttpStatus.ACCEPTED);
+        if (id != null)
+            return new ResponseEntity<>(id, HttpStatus.ACCEPTED);
+        else return new ResponseEntity<>("Wrong access code", HttpStatus.FORBIDDEN);
     }
 
     @GetMapping("pieces/{player_id}")
@@ -43,7 +45,7 @@ public class MainController {
 
     @GetMapping("/card")
     public ResponseEntity<Object> getCard() {
-        return new ResponseEntity<>(gameService.getCard(), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(gameService.getCard(), HttpStatus.OK);
     }
 
     @PostMapping("/startgame")
@@ -55,6 +57,13 @@ public class MainController {
             e.printStackTrace();
             return new ResponseEntity<>("Not enough players", HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @GetMapping("/getboard")
+    public ResponseEntity<Object> getBoard() {
+        List<String> board = gameService.getBoard();
+        if (board != null) return new ResponseEntity<>(board, HttpStatus.OK);
+        else return new ResponseEntity<>("Game is not running in current lobby", HttpStatus.BAD_REQUEST);
     }
 
 }

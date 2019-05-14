@@ -18,7 +18,7 @@ public class GameService {
     }
 
     public String joinLobby(String accessCode, String name, int color){
-        return application.joinLobby(name, color);
+        return application.joinLobby(accessCode, name, color);
     }
 
     public List<String> getPiecesByPlayerId(String playerId)  {
@@ -38,5 +38,9 @@ public class GameService {
 
     public void startGame() throws NotEnoughPlayersException {
         application.startGame();
+    }
+
+    public List<String> getBoard() {
+        return application.getBoard();
     }
 }

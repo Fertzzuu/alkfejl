@@ -8,8 +8,8 @@ import java.util.List;
 
 public abstract class Field implements Serializable {
 
-
-    public List<Piece> pieces;
+    private String id;
+    private List<Piece> pieces;
 
     public Field() {
         pieces = new ArrayList<>();
@@ -33,4 +33,7 @@ public abstract class Field implements Serializable {
         return pieces;
     }
 
+    public String getId() {
+        return id;
+    }
 }

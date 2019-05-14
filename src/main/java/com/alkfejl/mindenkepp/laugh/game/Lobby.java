@@ -58,8 +58,7 @@ public class Lobby {
 
     }
 
-    public void win(String playerid) {
-        Player winner = players.stream().filter(player -> player.getId().equals(playerid)).findAny().get();
-        game.win(winner);
+    public List<String> getBoard() {
+        return game.getBoard();
     }
 }
