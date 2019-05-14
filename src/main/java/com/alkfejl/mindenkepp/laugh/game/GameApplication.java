@@ -1,6 +1,7 @@
 package com.alkfejl.mindenkepp.laugh.game;
 
 
+import com.alkfejl.mindenkepp.laugh.exception.NotEnoughPlayersException;
 import com.alkfejl.mindenkepp.laugh.game.enums.StepFinishedState;
 import com.alkfejl.mindenkepp.laugh.game.models.Piece;
 import com.alkfejl.mindenkepp.laugh.game.models.Player;
@@ -64,4 +65,7 @@ public class GameApplication {
         return lobby.getCardText();
     }
 
+    public void startGame() throws NotEnoughPlayersException {
+        lobby.startGame();
+    }
 }

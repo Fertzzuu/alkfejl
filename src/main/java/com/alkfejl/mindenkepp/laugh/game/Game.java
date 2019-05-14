@@ -4,8 +4,7 @@ package com.alkfejl.mindenkepp.laugh.game;
 import com.alkfejl.mindenkepp.laugh.game.enums.StepFinishedState;
 import com.alkfejl.mindenkepp.laugh.game.models.*;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.*;
 
 public class Game {
@@ -15,14 +14,15 @@ public class Game {
 
     static {
         try {
-            Scanner scanner = new Scanner(new File("/home/qwuaks/IdeaProjects/laugh/src/main/java/com/alkfejl/mindenkepp/laugh/game/resources/cards.data")); // TODO: 5/13/19 relative path
+            File file = new File("/home/qwuaks/IdeaProjects/laugh/src/main/java/com/alkfejl/mindenkepp/laugh/game/resources/cards.data");
+            BufferedReader br = new BufferedReader(new FileReader(file));
             String cardText;
             cards = new ArrayList<>();
-            while ((cardText = scanner.nextLine()) != null) {
+            while ((cardText = br.readLine()) != null) {
                 cards.add(cardText);
             }
 
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

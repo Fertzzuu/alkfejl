@@ -1,5 +1,6 @@
 package com.alkfejl.mindenkepp.laugh.web.service;
 
+import com.alkfejl.mindenkepp.laugh.exception.NotEnoughPlayersException;
 import com.alkfejl.mindenkepp.laugh.game.GameApplication;
 import com.alkfejl.mindenkepp.laugh.game.enums.StepFinishedState;
 import org.springframework.stereotype.Service;
@@ -34,4 +35,8 @@ public class GameService {
         return application.getCardText();
     }
 
+
+    public void startGame() throws NotEnoughPlayersException {
+        application.startGame();
+    }
 }

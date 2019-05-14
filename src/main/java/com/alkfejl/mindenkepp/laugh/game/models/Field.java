@@ -22,10 +22,6 @@ public abstract class Field implements Serializable {
             if (pieces.get(0).getId().equals(piece.getId()))
                 pieces.add(piece);
             else {
-                for (Piece p :
-                        pieces) {
-                    p.setCurrent(null);
-                }
                 pieces.clear();
                 pieces.add(piece);
             }
