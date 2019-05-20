@@ -76,4 +76,8 @@ public class GameApplication {
     public List<String> getBoard() {
         return lobby.isGameRunning() ? lobby.getBoard() : null;
     }
+
+    public List<Player> getPlayers() {
+        return lobby.getPlayers();
+    }
 }

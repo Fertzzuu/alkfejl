@@ -18,7 +18,7 @@ public class Piece implements Serializable {
         List<Field> fieldsOfPath = new ArrayList<>();
         for (int i = offset; i < board.size(); i++)
             fieldsOfPath.add(board.get(i % board.size()));
-        path = new Path(fieldsOfPath);
+        path = new Path(fieldsOfPath, this);
     }
 
     public boolean isIn() {

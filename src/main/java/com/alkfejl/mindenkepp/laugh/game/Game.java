@@ -61,7 +61,7 @@ public class Game {
     private boolean checkPlayers() {
         for (Player pl :
                 players) {
-            if (pl.won()){
+            if (pl.won()) {
                 isWon = true;
                 win(pl);
                 return true;
@@ -70,11 +70,11 @@ public class Game {
         return false;
     }
 
-    public void win(Player player) {
+    private void win(Player player) {
         this.winner = player;
     }
 
-    public void generateBoard() {
+    void generateBoard() {
         int numOfPlayers = players.size();
         board = new ArrayList<>();
         for (int i = 0; i < numOfPlayers; i++) {
@@ -91,22 +91,22 @@ public class Game {
             for (Piece piece : pieces)
                 piece.generatePath(board, i * 15);
         }
-    } // TODO: 5/13/19 player generáláskor path kijelölése a bábunak
+    }
 
 
-    public String getCardText() {
+    String getCardText() {
         Collections.shuffle(cards);
         String text = cards.get(0);
         cards.remove(0);
         return text;
     }
 
-    public List<String> getBoard() {
+    List<String> getBoard() {
         List<String> ids = new ArrayList<>();
-        for (Field f:
-             board) {
+        for (Field f : board)
             ids.add(f.getId());
-        }
         return ids;
     }
+
+
 }

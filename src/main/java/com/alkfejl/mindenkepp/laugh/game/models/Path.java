@@ -9,8 +9,9 @@ public class Path implements Serializable {
     private Piece owner;
     private List<Field> fields;
 
-    public Path(List<Field> fields){
+    public Path(List<Field> fields, Piece owner){
         this.fields = fields;
+        this.owner = owner;
     }
 
     public StepFinishedState step(int amount){
@@ -22,5 +23,9 @@ public class Path implements Serializable {
 
     public int length() {
         return fields.size();
+    }
+
+    public Field get(int i) {
+        return fields.get(i);
     }
 }

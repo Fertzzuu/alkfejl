@@ -3,6 +3,7 @@ package com.alkfejl.mindenkepp.laugh.web.service;
 import com.alkfejl.mindenkepp.laugh.exception.NotEnoughPlayersException;
 import com.alkfejl.mindenkepp.laugh.game.GameApplication;
 import com.alkfejl.mindenkepp.laugh.game.enums.StepFinishedState;
+import com.alkfejl.mindenkepp.laugh.game.models.Player;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +21,8 @@ public class GameService {
     public String joinLobby(String accessCode, String name, int color){
         return application.joinLobby(accessCode, name, color);
     }
+
+
 
     public List<String> getPiecesByPlayerId(String playerId)  {
         return application.getPiecesByPlayerId(playerId);
@@ -42,5 +45,9 @@ public class GameService {
 
     public List<String> getBoard() {
         return application.getBoard();
+    }
+
+    public List<Player> getPlayers() {
+        return application.getPlayers();
     }
 }
